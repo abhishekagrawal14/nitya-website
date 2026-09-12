@@ -6,8 +6,9 @@ const CONFIG = {
   girlfriendName: "Nitya",
   boyfriendName: "Abhishek",
 
-  mainPassword: "143",
+    mainPassword: "143",
   secretPassword: "2021",
+  bgMusic: "music/background.mp3",
 
   songs: [
     { title: "Hareya", artist: "Arijit Singh", reason: "because this is exactly how I felt the first time I realized I liked you.",videoId: "JpSFL_bHtBA" },
@@ -82,3 +83,5 @@ This whole thing started from one simple thought: there doesn't need to be a rea
 
 Whatever we're figuring out, whatever's ahead — I wanted this to exist as proof that I think about you more than I probably show.`
 };
+
+

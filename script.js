@@ -4,6 +4,40 @@ function goToScene(sceneId) {
   next.classList.add('scene--active');
 }
 
+(function initBgMusic() {
+  const audio = document.getElementById('bg-music');
+  const toggleBtn = document.getElementById('bg-music-toggle');
+  audio.src = CONFIG.bgMusic;
+  audio.volume = 0.5;
+
+  let userMuted = false;
+
+  window.pauseBgMusic = function () {
+    if (!audio.paused) audio.pause();
+  };
+
+  window.resumeBgMusic = function () {
+    if (audio.paused && !userMuted) {
+      audio.play().catch(() => {});
+    }
+  };
+
+  window.startBgMusic = function () {
+    audio.play().catch(() => {});
+  };
+
+  toggleBtn.addEventListener('click', () => {
+    userMuted = !userMuted;
+    if (userMuted) {
+      audio.pause();
+      toggleBtn.textContent = '🔇';
+    } else {
+      audio.play().catch(() => {});
+      toggleBtn.textContent = '🔊';
+    }
+  });
+})();
+
 (function initLockScreen() {
   const dustContainer = document.getElementById('dust-container');
   const passwordInput = document.getElementById('password-input');
@@ -48,8 +82,9 @@ function goToScene(sceneId) {
   });
 
   function checkPassword() {
-    if (passwordInput.value === CONFIG.mainPassword) {
-      unlockSuccess();
+      if (passwordInput.value === CONFIG.mainPassword) {
+        window.startBgMusic();
+        unlockSuccess();
     } else {
       showError();
     }
@@ -253,11 +288,13 @@ function goToScene(sceneId) {
         }
       });
 
-      if (alreadyOpen) {
-        card.classList.remove('open');
-        playerWrap.innerHTML = '';
+        if (alreadyOpen) {
+          card.classList.remove('open');
+          playerWrap.innerHTML = '';
+          window.resumeBgMusic();
       } else {
-        card.classList.add('open');
+          card.classList.add('open');
+          window.pauseBgMusic();
         if (!playerWrap.querySelector('iframe')) {
           const iframe = document.createElement('iframe');
           iframe.src = `https://www.youtube.com/embed/${song.videoId}?autoplay=1`;
@@ -425,11 +462,13 @@ function goToScene(sceneId) {
 
   card.addEventListener('click', () => {
     const isOpen = card.classList.contains('open');
-    if (isOpen) {
-      card.classList.remove('open');
-      playerWrap.innerHTML = '';
+      if (isOpen) {
+        card.classList.remove('open');
+        playerWrap.innerHTML = '';
+        window.resumeBgMusic();
     } else {
-      card.classList.add('open');
+        card.classList.add('open');
+        window.pauseBgMusic();
       if (!playerWrap.querySelector('iframe')) {
         const iframe = document.createElement('iframe');
         iframe.src = `https://www.youtube.com/embed/${song.videoId}?autoplay=1`;
