@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>for you</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ================= SCENE 01: LOCK SCREEN ================= -->
+<section id="scene-lock" class="scene scene--active">
+  <div class="grain"></div>
+  <div class="dust" id="dust-container"></div>
+
+  <div class="lock-box">
+    <div class="lock-icon">🔐</div>
+    <p class="lock-title">This place belongs to one person.</p>
+    <p class="lock-sub">Enter the password.</p>
+
+    <input
+      type="password"
+      id="password-input"
+      class="lock-input"
+      maxlength="6"
+      inputmode="numeric"
+      autocomplete="off"
+      placeholder="• • •"
+    />
+
+    <div class="keypad" id="keypad"></div>
+
+    <p class="lock-error" id="lock-error"></p>
+  </div>
+</section>
+
+<!-- ================= SCENE 02: WELCOME (placeholder, next section) ================= -->
+<section id="scene-welcome" class="scene">
+  <div class="grain"></div>
+  <div class="welcome-content">
+    <div class="welcome-character">
+      <span class="wc-bear">🧸</span>
+      <span class="wc-gift">🎁</span>
+    </div>
+
+    <div class="welcome-lines" id="welcome-lines">
+      <p class="w-line" data-line="1">Hey, you.</p>
+      <p class="w-line" data-line="2">No, it's not your birthday.</p>
+      <p class="w-line" data-line="3">No, it's not our anniversary.</p>
+      <p class="w-line w-line--big" data-line="4">I just wanted to do something for you. ❤️</p>
+      <p class="w-line w-line--note" data-line="5">because I felt like it.</p>
+    </div>
+
+    <button class="come-in-btn" id="come-in-btn">Come in →</button>
+  </div>
+</section>
+
+<!-- ================= SCENE 03: YOUR LITTLE WORLD (placeholder, next section) ================= -->
+
+<section id="scene-room" class="scene">
+  <div class="grain"></div>
+  <div class="room-wrap">
+    <p class="room-hint">tap around and see what you find</p>
+    <div class="room-objects">
+      <button class="room-item item-camera" data-target="scene-memories">
+        <span class="item-icon">📷</span>
+        <span class="item-label">Our memories</span>
+      </button>
+      <button class="room-item item-envelope" data-target="scene-letter">
+        <span class="item-icon">💌</span>
+        <span class="item-label">Things I've never said properly</span>
+      </button>
+      <button class="room-item item-cassette" data-target="scene-songs">
+        <span class="item-icon">🎧</span>
+        <span class="item-label">Songs that remind me of you</span>
+      </button>
+      <button class="room-item item-flower" data-target="scene-things">
+        <span class="item-icon">🌷</span>
+        <span class="item-label">Little things I love about you</span>
+      </button>
+      <button class="room-item item-bear" data-target="scene-openwhen">
+        <span class="item-icon">🧸</span>
+        <span class="item-label">Open when you need me</span>
+      </button>
+      <button class="room-item item-star" data-target="scene-future">
+        <span class="item-icon">⭐</span>
+        <span class="item-label">Our future</span>
+      </button>
+    </div>
+
+    <!-- hidden secret trigger — tucked in a corner, easy to miss on purpose -->
+    <span class="hidden-key" id="hidden-key">🗝️</span>
+  </div>
+</section>
+
+<!-- ============ SUB-SCENES (placeholders — we'll fill each one in upcoming sections) ============ -->
+ 
+
+
+<section id="scene-memories" class="scene sub-scene sub-scene--gallery">
+  <button class="back-btn" data-back>← back</button>
+  <div class="gallery-wrap">
+    <p class="gallery-title">our memories</p>
+    <div class="polaroid-grid" id="polaroid-grid"></div>
+  </div>
+</section>
+
+<!-- lightbox lives outside the scene so it can overlay anything -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-card">
+    <img id="lightbox-img" src="" alt="" />
+    <p id="lightbox-caption" class="lightbox-caption"></p>
+  </div>
+</div>
+
+
+<section id="scene-letter" class="scene sub-scene sub-scene--letter">
+  <button class="back-btn" data-back>← back</button>
+
+  <div class="envelope-stage" id="envelope-stage">
+    <span class="envelope-icon">💌</span>
+    <p class="envelope-hint">tap to open</p>
+  </div>
+
+  <div class="letter-paper" id="letter-paper">
+    <span class="letter-doodle doodle-1">✧</span>
+    <span class="letter-doodle doodle-2">♡</span>
+    <p class="letter-heading">Things I probably don't say enough...</p>
+    <div class="letter-body" id="letter-body"></div>
+    <p class="letter-footer">some things are easier to write than say.</p>
+  </div>
+</section>
+
+
+
+<section id="scene-songs" class="scene sub-scene sub-scene--songs">
+  <button class="back-btn" data-back>← back</button>
+  <div class="songs-wrap">
+    <span class="cassette-icon">🎧</span>
+    <p class="songs-title">songs that somehow became you</p>
+    <div class="song-list" id="song-list"></div>
+  </div>
+</section>
+
+
+
+<section id="scene-things" class="scene sub-scene sub-scene--things">
+  <button class="back-btn" data-back>← back</button>
+  <div class="things-wrap">
+    <p class="things-title">little things I love about you</p>
+    <p class="things-hint">tap a card</p>
+    <div class="things-grid" id="things-grid"></div>
+  </div>
+</section>
+
+
+
+<section id="scene-openwhen" class="scene sub-scene sub-scene--openwhen">
+  <button class="back-btn" data-back>← back</button>
+  <div class="openwhen-wrap">
+    <span class="openwhen-icon">🧸</span>
+    <p class="openwhen-title">open when you need me</p>
+    <div class="envelope-list" id="envelope-list"></div>
+  </div>
+</section>
+
+<!-- overlay for showing the opened message -->
+<div class="lightbox" id="openwhen-lightbox">
+  <div class="lightbox-card openwhen-card">
+    <p class="openwhen-label" id="openwhen-label"></p>
+    <p class="openwhen-message" id="openwhen-message"></p>
+  </div>
+</div>
+
+
+
+<section id="scene-future" class="scene sub-scene sub-scene--future">
+  <div class="grain"></div>
+  <div class="future-stars" id="future-stars"></div>
+  <button class="back-btn back-btn--light" data-back>← back</button>
+
+  <div class="future-wrap">
+    <div class="future-photo-frame">
+      <img id="future-photo" src="" alt="" />
+    </div>
+
+    <div class="future-list" id="future-list"></div>
+
+    <div class="song-list future-song-wrap" id="future-song-wrap"></div>
+
+        <p class="future-line1">I don't know exactly what the future looks like.</p>
+    <p class="future-line2">But I know who I want beside me.</p>
+  </div>
+</section>
+
+<!-- ================= SECRET AREA: LOCK ================= -->
+<section id="scene-secret-lock" class="scene sub-scene sub-scene--secretlock">
+  <div class="grain"></div>
+  <button class="back-btn" data-back>← back</button>
+
+  <div class="secret-reveal-box">
+    <p class="secret-reveal-line" id="secret-line-1">You weren't supposed to find this yet.</p>
+    <p class="secret-reveal-line secret-reveal-line--2" id="secret-line-2">...but okay.</p>
+
+    <div class="secret-input-wrap" id="secret-input-wrap">
+      <input
+        type="password"
+        id="secret-password-input"
+        class="lock-input secret-lock-input"
+        maxlength="6"
+        inputmode="numeric"
+        autocomplete="off"
+        placeholder="• • •"
+      />
+      <p class="secret-hint">think of a combo of us, babe</p>
+      <div class="keypad" id="secret-keypad"></div>
+      <p class="lock-error" id="secret-lock-error"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECRET LETTER ================= -->
+<section id="scene-secret-letter" class="scene sub-scene sub-scene--secretletter">
+  <button class="back-btn" data-back>← back</button>
+  <div class="secret-letter-paper" id="secret-letter-paper-clickable">
+    <p class="secret-letter-heading">For you.</p>
+    <div class="secret-letter-body" id="secret-letter-body"></div>
+    <p class="secret-letter-signoff">Love,<br /><span id="secret-signoff-name"></span> <span class="secret-heart">♡</span></p>
+  </div>
+    <p class="continue-hint">👉 tap the letter to continue 👈</p>
+</section>
+
+
+
+<!-- ================= FINAL SCENE ================= -->
+<section id="scene-final" class="scene sub-scene--final">
+  <div class="grain"></div>
+  <div class="final-hearts" id="final-hearts"></div>
+  <button class="back-btn back-btn--light" data-back>← back</button>
+  <div class="final-content">
+    <p class="final-line" id="final-line-calc">Calculating how much I love you...</p>
+
+    <div class="final-progress-wrap" id="final-progress-wrap">
+      <div class="final-progress-bar" id="final-progress-bar"></div>
+    </div>
+    <p class="final-percent" id="final-percent">0%</p>
+
+    <p class="final-line final-line--error" id="final-line-error">ERROR: NUMBER TOO LARGE</p>
+    <p class="final-line" id="final-line-okay">Okay, fine.</p>
+    <p class="final-line final-line--big" id="final-line-comehere">Just come here.</p>
+    <p class="final-emoji" id="final-emoji">🫂❤️</p>
+  </div>
+</section>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
