@@ -11,7 +11,7 @@ const CONFIG = {
   bgMusic: "music/background.mp3",
 
   songs: [
-    { title: "Hareya", artist: "Arijit Singh", reason: "because this is exactly how I felt the first time I realized I liked you.",videoId: "JpSFL_bHtBA" },
+    { title: "Hareya", artist: "Arijit Singh", reason: "because this is exactly how I felt the first time I realized I liked you.",videoId: "I4IB-D8uNx4" },
     { title: "Infinity", artist: "Jaymes Young", reason: "this one just feels like us on a long night with nothing to say and everything to say.", videoId: "LpwAenS7qzY" },
     { title: "Barbaad", artist: "jubin nautiyal", reason: "the kind of song that hits different at 2am thinking about you.", videoId: "0v5eHPfy5Lk" },
     { title: "Gajina", artist: "Pandavas", reason: "chaotic and fun, kinda like you when you're being extra.", videoId: "mGgq-N2djCs" },
