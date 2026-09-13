@@ -67,7 +67,7 @@ const CONFIG = {
     title: "Our song",
     artist: "us",
     reason: "the one that feels like forever.",
-    videoId: "vKDsAB1ccn0"
+    videoId: "1taGoBjdw94"
   },
 
   neverSaidLetter: `I don't think I say this enough, but you make ordinary days feel less ordinary. I get caught up in college and deadlines and everything else, and I forget to actually tell you the things I'm thinking.
