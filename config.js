@@ -13,7 +13,7 @@ const CONFIG = {
   songs: [
     { title: "Hareya", artist: "Arijit Singh", reason: "because this is exactly how I felt the first time I realized I liked you.",videoId: "I4IB-D8uNx4" },
     { title: "Infinity", artist: "Jaymes Young", reason: "this one just feels like us on a long night with nothing to say and everything to say.", videoId: "gvyLTyx7qBs" },
-    { title: "Barbaad", artist: "jubin nautiyal", reason: "the kind of song that hits different at 2am thinking about you.", videoId: "0v5eHPfy5Lk" },
+    { title: "Barbaad", artist: "jubin nautiyal", reason: "the kind of song that hits different at 2am thinking about you.", videoId: "G2jFQV9W7Zo" },
     { title: "Gajina", artist: "Pandavas", reason: "chaotic and fun, kinda like you when you're being extra.", videoId: "mGgq-N2djCs" },
     { title: "Gehra Hua", artist: "Arijit Singh", reason: "this is the 'I didn't expect to fall this deep but here we are' song.", videoId: "GX9x62kFsVU" }
   ],
