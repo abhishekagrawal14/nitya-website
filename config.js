@@ -52,7 +52,7 @@ const CONFIG = {
   futurePlans: [
     "That trip we keep talking about.",
     "That restaurant we still haven't tried.",
-    "A random late-night drive.",
+    "A random late-night sex.",
     "Watching a sunrise together.",
     "More stupid pictures.",
     "More ordinary days together."
